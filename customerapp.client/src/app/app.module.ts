@@ -3,15 +3,27 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { CustomerListComponent } from './customer-list/customer-list.component';
+import { CustomerItemComponent } from './customer-item/customer-item.component';
+import { CustomerService } from './customer.service';
+import { CustomerFormComponent } from './customer-form/customer-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CustomerListComponent,
+    CustomerItemComponent,
+    CustomerFormComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule
+    BrowserModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    CustomerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

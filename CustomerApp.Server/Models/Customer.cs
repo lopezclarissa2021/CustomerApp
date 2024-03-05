@@ -21,7 +21,6 @@ namespace ContactList.Server.Models
         public ICollection<Email> Emails { get; set; }
         [Required]
         public ICollection<CustomerAddress> Addresses { get; set; }
-        public ICollection<ContactAttempt> ContactAttempt { get; set; }
 
     }
 }

@@ -1,0 +1,28 @@
+<form [FormGroup]="customerForm">
+  <div>
+    <label>First Name</label>
+    <input type="text" formControlName="firstName" />
+
+    <label>Last Name</label>
+    <input type="text" formControlName="lastName" />
+
+    <label>Birthdate</label>
+    <input type="text" formControlName="birthdate" />
+    
+    <div formArrayName="phoneNumbers">
+      <button (click)="addPhone()">Add a New Phone Number</button>
+      <div ngFor="let phone of phoneNumbers.controls; let i = index">
+        <!-- The repeated alias template -->
+        <div [formGroupName]="i">
+          <label for="phone-{{ i }}">Phone Number:</label>
+          <input id="phone-{{ i }}" type="text" [formControlName]="phoneNumber" />
+        </div>
+      </div>
+    </div>
+    
+    <button type="submit" (click)="onSubmit()" [disabled]="customerForm.invalid">Submit</button>
+
+  </div>
+</form>
+
+<pre>{{ customerForm.getValue | json }}</pre>

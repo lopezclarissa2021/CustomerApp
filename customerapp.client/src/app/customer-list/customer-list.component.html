@@ -1,0 +1,7 @@
+<h2>Customer List</h2>
+
+<ul>
+  <li *ngFor="let customer of (customers | async)">
+    <app-customer-item [customer]="customer"></app-customer-item>
+  </li>
+</ul>
